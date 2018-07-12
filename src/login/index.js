@@ -13,11 +13,12 @@ import AccountCircle from "@material-ui/icons/AccountCircle"
 import styled from "styled-components"
 import Button from "@material-ui/core/Button"
 import Logo from "./logo.png"
-
+import Switch from "@material-ui/core/Switch"
+import FormControlLabel from "@material-ui/core/FormControlLabel"
 const styles = theme => ({
     root: {
         display: "flex",
-        flexWrap: "wrap",
+        flexWrap: "wrap"
     },
     margin: {
         margin: theme.spacing.unit
@@ -32,9 +33,7 @@ const styles = theme => ({
         margin: theme.spacing.unit
     }
 })
-const Container = styled.div`
-
-`
+const Container = styled.div``
 const StyledAornments = styled(InputAdornment)`
     width: 48px;
     height: 24px;
@@ -47,16 +46,16 @@ const Header = styled.div`
     width: 100vw;
     height: 60px;
     background-color: #ff5722;
-    text-align:center;
-    line-height:60px;
-    color:#fff;
-    font-size:20px;
+    text-align: center;
+    line-height: 60px;
+    color: #fff;
+    font-size: 20px;
 `
 const WrapperBoxButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 20px;
 `
 const LogoBox = styled.div`
     width: 150px;
@@ -66,17 +65,22 @@ const LogoBox = styled.div`
     margin: 30px auto 0;
 `
 const WrapperBoxInput = styled.div`
-    display:flex;
-    justify-content:center;
-    flex-direction:column;
-    flex-wrap:wrap;
-    padding:0 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0 20px;
+`
+const WrapperBoxSwitch = styled.div`
+    display: flex;
+    justify-content: flex-start;
 `
 class InputAdornments extends Component {
     state = {
         account: "",
         password: "",
-        showPassword: false
+        showPassword: false,
+        checkedA: true
     }
 
     handleChange = prop => event => {
@@ -90,19 +94,17 @@ class InputAdornments extends Component {
     handleClickShowPassword = () => {
         this.setState(state => ({ showPassword: !state.showPassword }))
     }
-
+    handleChangeSwitch = name => event => {
+        this.setState({ [name]: event.target.checked })
+    }
     render() {
         const { classes } = this.props
         return (
             <Container>
                 <Header>千彩丹青</Header>
                 <LogoBox />
-                <WrapperBoxInput >
-                    <FormControl
-                        className={classNames(
-                            classes.margin
-                        )}
-                    >
+                <WrapperBoxInput>
+                    <FormControl className={classNames(classes.margin)}>
                         <InputLabel htmlFor="adornment-account">
                             账号
                         </InputLabel>
@@ -118,11 +120,7 @@ class InputAdornments extends Component {
                             }
                         />
                     </FormControl>
-                    <FormControl
-                        className={classNames(
-                            classes.margin
-                        )}
-                    >
+                    <FormControl className={classNames(classes.margin)}>
                         <InputLabel htmlFor="adornment-password">
                             密码
                         </InputLabel>
@@ -150,6 +148,21 @@ class InputAdornments extends Component {
                             }
                         />
                     </FormControl>
+                    <WrapperBoxSwitch>
+                        <FormControlLabel
+                            control={
+                                <Switch
+                                    checked={this.state.checkedA}
+                                    onChange={this.handleChangeSwitch(
+                                        "checkedA"
+                                    )}
+                                    value="checkedA"
+                                    color="primary"
+                                />
+                            }
+                            label="记住密码"
+                        />
+                    </WrapperBoxSwitch>
                 </WrapperBoxInput>
                 <WrapperBoxButton>
                     <Button
