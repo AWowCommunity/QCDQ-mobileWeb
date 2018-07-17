@@ -12,9 +12,9 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff"
 import AccountCircle from "@material-ui/icons/AccountCircle"
 import styled from "styled-components"
 import Button from "@material-ui/core/Button"
-import Logo from "./logo.png"
 import Switch from "@material-ui/core/Switch"
 import FormControlLabel from "@material-ui/core/FormControlLabel"
+
 const styles = theme => ({
     root: {
         display: "flex",
@@ -42,27 +42,11 @@ const StyledAornments = styled(InputAdornment)`
     align-items: center;
     color: rgba(0, 0, 0, 0.54);
 `
-const Header = styled.div`
-    width: 100vw;
-    height: 60px;
-    background-color: #ff5722;
-    text-align: center;
-    line-height: 60px;
-    color: #fff;
-    font-size: 20px;
-`
 const WrapperBoxButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-`
-const LogoBox = styled.div`
-    width: 150px;
-    height: 150px;
-    background-image: url(${Logo});
-    background-size: 100% 100%;
-    margin: 30px auto 0;
 `
 const WrapperBoxInput = styled.div`
     display: flex;
@@ -74,6 +58,7 @@ const WrapperBoxInput = styled.div`
 const WrapperBoxSwitch = styled.div`
     display: flex;
     justify-content: flex-start;
+    padding-left: 10px;
 `
 class InputAdornments extends Component {
     state = {
@@ -101,8 +86,6 @@ class InputAdornments extends Component {
         const { classes } = this.props
         return (
             <Container>
-                <Header>千彩丹青</Header>
-                <LogoBox />
                 <WrapperBoxInput>
                     <FormControl className={classNames(classes.margin)}>
                         <InputLabel htmlFor="adornment-account">
@@ -141,8 +124,8 @@ class InputAdornments extends Component {
                                         {this.state.showPassword ? (
                                             <VisibilityOff />
                                         ) : (
-                                                <Visibility />
-                                            )}
+                                            <Visibility />
+                                        )}
                                     </IconButton>
                                 </InputAdornment>
                             }
@@ -168,14 +151,11 @@ class InputAdornments extends Component {
                     <Button
                         color="primary"
                         className={classes.button}
-                        variant="contained"
+                        variant="extendedFab"
+                        size='large'
+                        
                     >
                         登 录
-                    </Button>
-                </WrapperBoxButton>
-                <WrapperBoxButton>
-                    <Button color="secondary" className={classes.button}>
-                        注册
                     </Button>
                 </WrapperBoxButton>
             </Container>

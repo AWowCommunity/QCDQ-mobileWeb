@@ -6,15 +6,19 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles"
 
 import App from './app'
 import Login from './login'
+import SwitchSignInAndSignUp  from './switchSignInAndSignUp'
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: "#ff5722",
+            main: "#c8010b",
             contrastText: "#fff"
         },
         secondary: {
             main: "#3f569b",
             contrastText: "#fff"
+        },
+        default:{
+            main:"#fff"
         }
     }
 })
@@ -26,7 +30,7 @@ injectGlobal`
         padding:0;
     }
     div[class*="MuiInput-underline"]:after {
-        border-bottom-color: #ff5722;
+        border-bottom-color: #c8010b;
     }
     div[class^=InputAdornments-root] div[class^=MuiFormControl-root] label{
         color:#000;
@@ -37,7 +41,7 @@ injectGlobal`
 render(
     <Provider>
         <MuiThemeProvider theme={theme}>
-            <Login />
+            <SwitchSignInAndSignUp />
         </MuiThemeProvider>
         {/* <App></App> */}
     </Provider>,
