@@ -57,8 +57,15 @@ const WrapperBoxInput = styled.div`
 `
 const WrapperBoxSwitch = styled.div`
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding-left: 10px;
+    line-height: 48px;
+`
+const ForgetBox = styled.div``
+
+const Atage = styled.a`
+    text-decoration:none;
+    color: #000;
 `
 class InputAdornments extends Component {
     state = {
@@ -124,8 +131,8 @@ class InputAdornments extends Component {
                                         {this.state.showPassword ? (
                                             <VisibilityOff />
                                         ) : (
-                                            <Visibility />
-                                        )}
+                                                <Visibility />
+                                            )}
                                     </IconButton>
                                 </InputAdornment>
                             }
@@ -145,6 +152,11 @@ class InputAdornments extends Component {
                             }
                             label="记住密码"
                         />
+                        <ForgetBox>
+                            <Atage href="#">
+                                忘记密码?
+                            </Atage>
+                        </ForgetBox>
                     </WrapperBoxSwitch>
                 </WrapperBoxInput>
                 <WrapperBoxButton>
@@ -152,8 +164,7 @@ class InputAdornments extends Component {
                         color="primary"
                         className={classes.button}
                         variant="extendedFab"
-                        size='large'
-                        
+                        size="large"
                     >
                         登 录
                     </Button>
