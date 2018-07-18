@@ -5,8 +5,9 @@ import { injectGlobal } from 'styled-components'
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles"
 
 import App from './app'
-import Login from './login'
+
 import SwitchSignInAndSignUp  from './switchSignInAndSignUp'
+
 const theme = createMuiTheme({
     palette: {
         primary: {

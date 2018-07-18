@@ -6,13 +6,14 @@ import Input from "@material-ui/core/Input"
 import InputLabel from "@material-ui/core/InputLabel"
 import FormControl from "@material-ui/core/FormControl"
 import Button from "@material-ui/core/Button"
-import InputAdornment from '@material-ui/core/InputAdornment'
+import InputAdornment from "@material-ui/core/InputAdornment"
 import AccountCircle from "@material-ui/icons/AccountCircle"
 import Visibility from "@material-ui/icons/Visibility"
 import VisibilityOff from "@material-ui/icons/VisibilityOff"
 import IconButton from "@material-ui/core/IconButton"
-import Email from '@material-ui/icons/Email'
+import Email from "@material-ui/icons/Email"
 import styled from "styled-components"
+import TextField from "@material-ui/core/TextField"
 
 const Container = styled.div``
 const WrapperBoxInput = styled.div`
@@ -54,7 +55,8 @@ class SignUp extends Component {
         account: "",
         password: "",
         email: "",
-        showPassword:false,
+        showPassword: false,
+        age: 0
     }
     handleChange = prop => event => {
         this.setState({ [prop]: event.target.value })
@@ -76,7 +78,7 @@ class SignUp extends Component {
                         </InputLabel>
                         <Input
                             id="account"
-                            type={"text"}
+                            type="text"
                             value={this.state.account}
                             onChange={this.handleChange("account")}
                             endAdornment={
@@ -123,8 +125,8 @@ class SignUp extends Component {
                                         {this.state.showPassword ? (
                                             <VisibilityOff />
                                         ) : (
-                                                <Visibility />
-                                            )}
+                                            <Visibility />
+                                        )}
                                     </IconButton>
                                 </InputAdornment>
                             }
