@@ -4,7 +4,8 @@ import { withStyles } from "@material-ui/core/styles"
 import Tabs from "@material-ui/core/Tabs"
 import Tab from "@material-ui/core/Tab"
 import Typography from "@material-ui/core/Typography"
-import Login from '../login'
+import Login from '../signIn'
+import SignUp from '../signUp'
 
 function TabContainer(props) {
     return (
@@ -52,7 +53,9 @@ class SimpleTabs extends React.Component {
                 {value === 0 && <TabContainer>
                     <Login></Login>
                 </TabContainer>}
-                {value === 1 && <TabContainer>11111</TabContainer>}
+                {value === 1 && <TabContainer>
+                    <SignUp></SignUp>
+                </TabContainer>}
             </div>
         )
     }
